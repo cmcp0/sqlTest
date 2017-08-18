@@ -1,7 +1,6 @@
 [ODBC]
-DRIVER=ODBC Driver 13 for SQL Server
-TrustServerCertificate=No
-WSID=NAVI
+DRIVER=ODBC Driver 11 for SQL Server
+UID=sa
+WSID=DEVELOPER-IV
 APP=Sistema operativo Microsoft® Windows®
-Trusted_Connection=Yes
-SERVER=(LocalDB)\DBTest
+SERVER=HYLLOS

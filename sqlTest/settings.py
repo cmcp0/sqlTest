@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app.apps.AppConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -44,11 +44,12 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'sqlTest.urls'
 
@@ -83,13 +84,13 @@ WSGI_APPLICATION = 'sqlTest.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': "sql_server.pyodbc",
-       'HOST': "TestDB",
-       'USER': "",
-       'PASSWORD': "",
+       'HOST': "Hyllos",
+       'USER': "sa",
+       'PASSWORD': "masterkey",
        'NAME': "DjangoTest",
        'OPTIONS': {
-           'driver': 'ODBC Driver 13 for SQL Server',
-            'dsn': 'TestDB',
+           'driver': 'ODBC Driver 11 for SQL Server',
+            # 'dsn': 'Hyllos',
             # 'unicode_results': True,
             # 'autocommit': True,
             # 'driver_supports_utf8': True,

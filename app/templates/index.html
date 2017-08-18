@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block tablas %}
+{% load brwTags %}
+{% if perfilUsuario == "A" %}
+    {% for modelo in modelList %}
+        <li><a href="{% getClassName modelo %}">{% getClassName modelo %}</a></li>
+    {% empty%}
+
+    {% endfor %}
+{% endif%}
+{% endblock %}
+
+<!-- -------------------------------------------------------- content -->
+
+{% block contenido %}
+    contenido para index
+{% endblock %}

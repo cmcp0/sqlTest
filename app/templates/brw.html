@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block tablas %}
+{% load brwTags %}
+{% if perfilUsuario == "A" %}
+    {% for modelo in modelList %}
+        <li><a href="{% getClassName modelo %}">{% getClassName modelo %}</a></li>
+    {% empty%}
+
+    {% endfor %}
+{% endif%}
+{% endblock %}
+
+{% block titulo %}
+    <header class="page-header blog-page-header section-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">{{tabla}}</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+
+<!-- -------------------------------------------------------- contenido -->
+
+{% block contenido %}
+<div class="col-sm-12 blogbar">
+    <div class="">
+        {% if perfilUsuario == "A" %}
+            <a id="btnAgregar" class="btn btn-sm" href="#">Agregar</a>
+            <a id="btnCambiar" class="btn btn-sm" href="#">Cambiar</a>
+            <a id="btnBorrar" class="btn btn-sm" href="#">Borrar</a>
+        {% endif %}
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table id="dataGrid" class="table">
+            <thead>
+                {% load brwTags %}
+                {% getKeys registros as Keys%}
+                <!-- <span>{{Keys}}</span> -->
+                <th></th>
+                {% for key in Keys %}
+                    {% if 'hidden' in key %}
+                        <th style="display: none"></th>
+                    {% else %}
+                        <th>{{key}}</th>
+                    {% endif %}
+                {% empty%}
+                {% endfor %}
+
+            </thead>
+            <tbody>
+                {% for r in registros %}
+                <tr >
+                    <td>*</td>
+                    {% for key in Keys %}
+                        {% getAttr r as ATTR%}
+                        {% if 'hidden' in key %}
+                            <td class="{{key|quitar:'hidden'}}" style="display: none">{{ATTR}}</td>
+                        {% else %}
+                            <td>{{ATTR}}</td>
+                        {% endif %}
+
+                    {% empty%}
+                    {% endfor %}
+                </tr>
+
+                {% empty%}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="" class="col-sm-12 blogbar">
+    <div id="formDatos" class="">
+        <!-- {{forms.as_p}} -->
+        {{ forms.management_form }}
+        {% for form in forms %}
+            <div class="form-group">
+                <label class="control-label" for="id_{{form.name}}">{{form.name|title}}: </label>
+                {{ form }}
+            </div>
+
+        {% endfor %}
+    </div>
+    <a id="btnGuardar" class="" href="#">Guardar</a>
+</div>
+{% endblock %}
+
+
+
+{% block scritps %}
+    <script type="text/javascript" src="/static/scripts/brw.js"></script>
+{% endblock %}

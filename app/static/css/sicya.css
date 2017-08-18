@@ -1,0 +1,24 @@
+.btn {
+    padding: 6px 12px;
+}
+
+.navbar .navbar-toggle{
+  color: #1193d4;
+  /*border-color: #1193d4;
+  padding-top: 0;
+  padding-bottom: 0;*/
+}
+
+.navbar .navbar-toggle:hover {
+    color: #fff;
+}
+
+/*.navbar .navbar-brand {
+  color: #1193d4;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 3.4rem;
+  height: 60px;
+  padding: 20px 15px;
+
+}*/
